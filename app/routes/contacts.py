@@ -65,3 +65,19 @@ def search_contact(query: str, db: Session = Depends(get_db)):
 @router.get("/contacts/birthdays/")
 def birthdays_next_week(db: Session = Depends(get_db)):
     return get_birthdays_next_week(db)
+
+# @router.get("/contacts/", response_model=list[ContactOut])
+# def read_contacts(skip: int = 0, limit: int = 10, 
+#                   db: Session = Depends(get_db), 
+#                   current_user: User = Depends(get_current_user)):
+#     return db.query(Contact).filter(Contact.owner_id == current_user.id).offset(skip).limit(limit).all()
+
+# @router.post("/contacts/", response_model=ContactOut)
+# def create_new_contact(contact: ContactCreate, 
+#                        db: Session = Depends(get_db),
+#                        current_user: User = Depends(get_current_user)):
+#     new_contact = Contact(**contact.dict(), owner_id=current_user.id)
+#     db.add(new_contact)
+#     db.commit()
+#     db.refresh(new_contact)
+#     return new_contact

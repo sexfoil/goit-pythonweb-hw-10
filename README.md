@@ -1,4 +1,4 @@
-# goit-pythonweb-hw-08
+# goit-pythonweb-hw-10
 
 Home work in scope of "Fullstack Web Development with Python" module
 
