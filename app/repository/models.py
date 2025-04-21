@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, String, Date
+from sqlalchemy import Column, Integer, String, Date, DateTime, Boolean
+from datetime import datetime
 from .database import Base
 
 
@@ -12,15 +13,15 @@ class Contact(Base):
     phone_number = Column(String, nullable=False)
     birthday = Column(Date, nullable=True)
 
-# from sqlalchemy import Column, Integer, String, DateTime, Boolean
-# from datetime import datetime
 
-# class User(Base):
-#     __tablename__ = "users"
+class User(Base):
+    __tablename__ = "users"
 
-#     id = Column(Integer, primary_key=True, index=True)
-#     email = Column(String, unique=True, index=True, nullable=False)
-#     hashed_password = Column(String, nullable=False)
-#     is_active = Column(Boolean, default=True)
-#     is_verified = Column(Boolean, default=False)
-#     created_at = Column(DateTime, default=datetime.utcnow)
+    id = Column(Integer, primary_key=True, index=True)
+    username = Column(String, unique=True, index=True)
+    email = Column(String, unique=True, index=True, nullable=False)
+    hashed_password = Column(String, nullable=False)
+    is_active = Column(Boolean, default=True)
+    is_verified = Column(Boolean, default=False)
+    verification_token = Column(String, nullable=True)
+    avatar_url = Column(String, nullable=True)

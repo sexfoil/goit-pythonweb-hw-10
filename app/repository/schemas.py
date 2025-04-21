@@ -25,25 +25,25 @@ class ContactOut(ContactBase):
     class Config:
         orm_mode = True
 
-# from pydantic import BaseModel, EmailStr
-# from typing import Optional
 
-# class UserCreate(BaseModel):
-#     email: EmailStr
-#     password: str
+class UserCreate(BaseModel):
+    username: str
+    email: EmailStr
+    password: str
 
-# class UserOut(BaseModel):
-#     id: int
-#     email: EmailStr
-#     is_active: bool
-#     is_verified: bool
 
-#     class Config:
-#         orm_mode = True
+class UserOut(BaseModel):
+    id: int
+    username: str
+    email: str
+    is_active: bool
+    is_verified: bool
+    avatar_url: Optional[str] = None
 
-# class Token(BaseModel):
-#     access_token: str
-#     token_type: str
+    class Config:
+        from_attributes = True
 
-# class TokenData(BaseModel):
-#     email: Optional[str] = None
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
