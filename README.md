@@ -2,16 +2,10 @@
 
 Home work in scope of "Fullstack Web Development with Python" module
 
-## Install
-
-```
-pip3 install fastapi sqlalchemy psycopg2 pydantic uvicorn email_validator
-```
-
 ## Run
 
 ```
-python -m uvicorn app.main:app --reload
+docker-compose up --build
 ```
 
 ## Usage
