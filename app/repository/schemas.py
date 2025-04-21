@@ -7,8 +7,9 @@ class ContactBase(BaseModel):
     first_name: str
     last_name: str
     email: EmailStr
-    phone_number: str
-    birthday: Optional[date]
+    phone: str
+    birthday: Optional[date] = None
+    additional_info: Optional[str] = None
 
 
 class ContactCreate(ContactBase):
@@ -19,7 +20,7 @@ class ContactUpdate(ContactBase):
     pass
 
 
-class ContactOut(ContactBase):
+class ContactResponse(ContactBase):
     id: int
 
     class Config:
@@ -32,7 +33,7 @@ class UserCreate(BaseModel):
     password: str
 
 
-class UserOut(BaseModel):
+class UserResponse(BaseModel):
     id: int
     username: str
     email: str
